@@ -1,0 +1,389 @@
+/* --- CSS Variables for Theming --- */
+:root {
+  /* Light Theme (Default) */
+  --bg-color: #f8fafc;
+  --alt-bg: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --card-bg: #ffffff;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border-color: #e2e8f0;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+  /* Dark Theme */
+  --bg-color: #0f172a;
+  --alt-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --card-bg: #1e293b;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --border-color: #334155;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Global Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.alt-bg {
+  background-color: var(--alt-bg);
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.section-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* --- Navigation --- */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+/* --- Hero Section --- */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 60px; /* Offset for nav */
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  height: 30px; /* Keeps layout stable while typing */
+}
+
+.social-links {
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  margin: 0 10px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.primary-btn {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.outline-btn {
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+}
+
+.outline-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* --- Grids & Cards --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Specific Section Styles --- */
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  text-align: center;
+}
+
+.skill-card i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item h3 { margin-bottom: 0.5rem; }
+.timeline-item .institution { color: var(--accent); font-weight: 600; }
+.timeline-item .date { color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;}
+
+.internship-card ul {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+}
+
+.cp-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); text-align: center;}
+.cp-logo { height: 40px; margin-bottom: 1rem; }
+.cp-card h3 { margin-bottom: 0.5rem; }
+.cp-card .stat { font-weight: bold; color: var(--accent); margin-bottom: 0.5rem;}
+.cp-card .gist { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;}
+.cp-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+.cp-link:hover { text-decoration: underline; }
+
+body.dark-mode .filter-invert { filter: invert(1); } /* Make LeetCode logo white in dark mode */
+
+.project-card .tech-stack {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.cert-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.cert-card { padding: 0; overflow: hidden; }
+.cert-card img { width: 100%; height: auto; display: block; border-bottom: 1px solid var(--border-color); }
+.cert-card h3 { padding: 1.5rem 1.5rem 0.5rem; font-size: 1.1rem; }
+.cert-card p { padding: 0 1.5rem 1.5rem; color: var(--text-secondary); font-size: 0.9rem; }
+
+/* --- Forms --- */
+#contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- Animations --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* In a real app, you'd add a hamburger menu here */
+  }
+  .hero h1 { font-size: 2.5rem; }
+  .hero h2 { font-size: 1.3rem; }
+  section { padding: 4rem 0; }
+}
+/* --- Custom Cursor Pointer --- */
+.cursor-dot, 
+.cursor-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent);
+  transition: all 0.15s ease-out; /* Creates the "trailing" effect */
+}
+
+/* Hide real cursor on desktop for a cleaner look */
+@media (min-width: 769px) {
+  body {
+    cursor: none;
+  }
+  a, button, .cp-link, .social-links a {
+    cursor: none;
+  }
+}
+
+/* On hover of interactive elements, make the cursor expand */
+.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(37, 99, 235, 0.1); /* Subtle fill */
+  border-width: 1px;
+}
+
+/* Hide custom cursor on touch devices (phones) */
+@media (max-width: 768px) {
+  .cursor-dot, .cursor-outline {
+    display: none;
+  }
+  body {
+    cursor: auto;
+  }
+}
